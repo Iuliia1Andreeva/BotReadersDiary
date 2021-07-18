@@ -122,11 +122,7 @@ def callback_worker(call):
         bot.register_next_step_handler(msg, send_keyboard_3)
 
     elif call.text == "Посмотреть запись о книге":
-        try:
-            bot.register_next_step_handler(call, show_impressions)
-        except:
-            bot.send_message(call.chat.id, 'Здесь пусто. Если хочешь, можем подобрать тебе книгу прямо сейчас!')
-            send_keyboard(call, "Чем еще могу помочь?")
+        show_impressions(call)
 
     elif call.text == "Пока все!":
         bot.send_message(call.chat.id, 'Хорошего дня! Когда захотите продолжнить нажмите на команду /start')
